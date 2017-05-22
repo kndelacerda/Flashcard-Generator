@@ -1,0 +1,44 @@
+{
+    "basic": {
+        "1": {
+            "front": "QUESTION 1 SENTENCE",
+            "back": "QUESTION 1 ANSWER"
+        },
+        "2": {
+            "front": "QUESTION 2 SENTENCE",
+            "back": "QUESTION 2 ANSWER"
+        },
+        "3": {
+            "front": "QUESTION 3 SENTENCE",
+            "back": "QUESTION 3 ANSWER"
+        },
+        "4": {
+            "front": "QUESTION 4 SENTENCE",
+            "back": "QUESTION 4 ANSWER"
+        },
+        "5": {
+            "front": "QUESTION 5 SENTENCE",
+            "back": "QUESTION 5 ANSWER"
+        },
+        "6": {
+            "front": "QUESTION 6 SENTENCE",
+            "back": "QUESTION 6 ANSWER"
+        },
+        "7": {
+            "front": "QUESTION 7 SENTENCE",
+            "back": "QUESTION 7 ANSWER"
+        },
+        "8": {
+            "front": "QUESTION 8 SENTENCE",
+            "back": "QUESTION 8 ANSWER"
+        },
+        "9": {
+            "front": "QUESTION 9 SENTENCE",
+            "back": "QUESTION 9 ANSWER"
+        },
+        "10": {
+            "front": "QUESTION 10 SENTENCE",
+            "back": "QUESTION 10 ANSWER"
+        }
+    }
+}

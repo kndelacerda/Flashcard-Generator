@@ -1,26 +1,78 @@
+// Allows files to be readable
+var fs = require("fs")
+    // Calls the Inquirer NPM
 var inquirer = require("inquirer");
 
-var firstPresident = new BasicCard(
-    "Who was the first president of the United States?", "George Washington");
+// randomizer function
+function randomizer(cap) {
+    var random = Math.floor(Math.random() * 5) + 1;
+    return random;
+};
 
-// "Who was the first president of the United States?"
-console.log(firstPresident.front);
+// Card Constructor
+function BasicCard(front, back) {
+    if (this instanceof Basiccard) {
+        this.front = front;
+        this.back = back;
+    } else {
+        return new BasicCard(front, back);
+    }
+};
 
-// "George Washington"
-console.log(firstPresident.back);
+// Add print card to basic card prototype
+BasicCard.prototype.printCard = function() {
+    console.log("Question: " + this.front + "\nAnswer: " + this.back);
+};
 
-var firstPresidentCloze = new ClozeCard(
-    "George Washington was the first president of the United States.", "George Washington");
+// cloze card construction
+function ClozeCard(text, cloze) {
+    if (this instanceof ClozeCard) {
+        this.text = text;
+        this.cloze = cloze;
+        this.hidden = text.replace(cloze, "( ... )")
+    } else {
+        return new ClozeCard(text, cloze);
+    }
+};
 
-// "George Washington"
-console.log(firstPresidentCloze.cloze);
+// Print Card to BasicCard Prototype
+//** ClozeCard.prototype.printCard = function */
+//**switch function */
 
-// " ... was the first president of the United States.
-console.log(firstPresidentCloze.partial);
-"
-
-// "George Washington was the first president of the United States.
-console.log(firstPresidentCloze.fullText): "
-
-// Should throw or log an error because "oops" doesn't appear in "This doesn't work"
-var brokenCloze("This doesn't work", "oops");
+ClozeCard.prototype.printCard = function() {
+    if (this.text.includes(this.cloze)) {
+        console.log("Card stored as: " + this.hidden);
+    } else {
+        console.log("Error: text to hide not in full text.")
+    }
+}
+switch (process.argv[2]) {
+    case "basic":
+        var askForInput = inquirer.prompt([{
+                type: "input",
+                name: "question",
+                message: "Enter the question text: "
+            },
+            {
+                type: "input",
+                name: "answer",
+                message: "Enter the answer text: "
+            }
+        ]).then(function(data) {
+            var newCard = BasicCard(data.question, data.answer);
+            newCard.printCard();
+        });
+        break;
+    case "cloze":
+        var askForInput = inquirer.prompt([{
+            type: "input",
+            name: "clozed",
+            message: "What portion of the test do you want to hide?"
+        }]).then(function(data) {
+            var newCard = ClozeCard(data.text, data.clozed);
+            newCard.printCard();
+        });
+        break;
+    default:
+        console.log("Incorrect card type: run file from node adding 'basic' for Basic Cards or 'cloze' for Cloze Cards.")
+};
