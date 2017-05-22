@@ -3,12 +3,6 @@ var fs = require("fs")
     // Calls the Inquirer NPM
 var inquirer = require("inquirer");
 
-// randomizer function
-function randomizer(cap) {
-    var random = Math.floor(Math.random() * 5) + 1;
-    return random;
-};
-
 // Card Constructor
 function BasicCard(front, back) {
     if (this instanceof Basiccard) {
